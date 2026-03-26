@@ -3,7 +3,8 @@
 # Autor: MATHEUS DE MENEZES MAZELLI
 # Data: 26/03/2026
 ##########################################
-
+# Removendo os objetos ativos
+rm(list=ls())
 
 # = EXERCÍCIO 1 =
 
