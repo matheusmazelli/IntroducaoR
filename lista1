@@ -12,60 +12,60 @@ rm(list=ls())
 # = EXERCÍCIO 1 =
 
 
-# (a)
+# (1a)
 3+4*8
 
-# (b)
+# (1b)
 (3+4)*8
 
-# (c)
+# (1c)
 8*5+2*3
 
-# (d)
+# (1d)
 8*(5+2)*3
 
-# (e)
+# (1e)
 2^3+2*sqrt(3)
 
-# (f)
+# (1f)
 (2*8)/3+5/(6+8)
 
-# (g)
+# (1g)
 sum(1:8)
 
-# (h)
+# (1h)
 prod(1:8)
 
-# (i)
+# (1i)
 (1+1/8)^3
 
-# (j)
+# (1j)
 cos(pi)
 
-# (k)
+# (1k)
 sin(pi)^2+cos(pi)^2
 
-# (l)
+# (1l)
 log(9)
 
-# (m)
+# (1m)
 abs(8-19)
 
-# (n)
+# (1n)
 2/factorial(7)+sqrt(2)/2
 
 
 # = EXERCÍCIO 2 =
 
 
-# (a)
+# (2a)
 MATRIZ <- matrix(c(5,0,6,9,6,4,3,5,2), nrow=3, ncol=3, byrow=TRUE)
 MATRIZ
 
-# (b)
+# (2b)
 dim(MATRIZ)
 
-# (c)
+# (2c)
 diag(MATRIZ)
 
 
