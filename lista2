@@ -17,17 +17,55 @@ jog <- read.csv2(urlfile)
 
 jog
 
+
 # RESPOSTA (1a)
+
+
 ijog <- jog$idade
-# Média das idades dos atletas
+
+# Média das idades dos jogadores
 mean(ijog)
-# Desvio padrão das idades dos atletas
+
+# Desvio padrão das idades dos jogadores
 sd(ijog)
-# Mediana das idades dos atletas
+
+# Mediana das idades dos jogadores
 median(ijog)
-# Amplitude das idades dos atletas
+
+# Amplitude das idades dos jogadores
 range(ijog)
-# Intervalo interquartil das idades dos atletas
-quantile(ijog)
+
+# Intervalo interquartil das idades dos jogadores
+IQR(ijog)
+
 
 # RESPOSTA (1b)
+
+
+ajog <- jog$altura
+
+# Média das alturas dos jogadores com mais de 25 anos de idade
+mean(ajog[ijog>25])
+
+# Desvio padrão das alturas dos jogadores com mais de 25 anos de idade
+sd(ajog[ijog>25])
+
+
+# RESPOSTA (1c)
+
+
+pjog <- jog$posicao
+
+# Média das alturas dos jogadores por posição
+aggregate(ajog, by=list(pjog), mean)
+
+# Desvio padrão das alturas dos jogadores por posição
+aggregate(ajog, by=list(pjog), sd)
+
+# Mediana das alturas dos jogadores por posição
+aggregate(ajog, by=list(pjog), median)
+
+
+#RESPOSTA (1d)
+
+
