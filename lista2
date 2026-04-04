@@ -91,7 +91,7 @@ prop.table(table(pjog))
 # Intervalos de idades
 intijog <- cut(ijog, breaks = c(22, 24, 26, 28, 30, 32, 34))
 
-# Quantidade de jogadores por idade por intervalo
+# Quantidade de idade de jogadores por intervalo
 table(intijog)
 
 
@@ -100,20 +100,23 @@ table(intijog)
 
 # RESPOSTA (2a)
 
-# Sequência com valores decrescentes, com diferença constante -4
+# Sequência com valores decrescentes, com subtração constante de 4
 seq(from=40, to=20, by=-4)
+
 
 # RESPOSTA (2b)
 
-# Sequência com valores decrescentes, com três repetições
+# Sequência com valores decrescentes, com três repetições de um trio de sequências
 rep(c(9, 5, 2), times=3)
+
 
 # RESPOSTA (2c)
 
-# Sequência com valores crescentes, com a soma constante de 0.2
+# Sequência com valores crescentes, com a adição constante de 0.2
 seq(from=0, to=1, by=0.2)
+
 
 # RESPOSTA (2d)
 
-# Seguência com valores repetidos e decrescentes
+# Seguência de dois valores repetidos por 3 vezes cada um e decrescentes
 rep(c(9,7), each=3)
