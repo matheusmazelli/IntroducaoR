@@ -12,10 +12,10 @@ rm(list=ls())
 # = EXERCÍCIO 1 =
 
 
-# Tabela com os dados estatísticos dos jogadores
+# Endereço da tabela com os dados estatísticos dos jogadores
 urlfile="https://raw.githubusercontent.com/edsonzmartinez/cursoR/main/Dados_jogadores.csv" 
 
-# Nome do objeto
+# Tabela com os dados estatísticos dos jogadores
 jog <- read.csv2(urlfile)
 
 # Listagem da tabela com os dados estatísticos dos jogadores
@@ -72,9 +72,9 @@ aggregate(ajog, by=list(pjog), median)
 
 # RESPOSTA (1d)
 
-#  Coeficiente de correlação de Pearson entre idade e altura dos atletas
+# Coeficiente de correlação de Pearson entre idade e altura dos atletas
 cor.test(ijog, ajog)
-# Correlação positiva, porém fraca. Não há uma tendência estatisticamente significativa para esta afirmação
+# Conclusão: correlação positiva, porém fraca. Não há uma tendência estatisticamente significativa para esta afirmação.
 
 
 # RESPOSTA (1e)
