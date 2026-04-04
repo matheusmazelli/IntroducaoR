@@ -12,15 +12,19 @@ rm(list=ls())
 # = EXERCÍCIO 1 =
 
 
+# Tabela com os dados estatísticos dos jogadores
 urlfile="https://raw.githubusercontent.com/edsonzmartinez/cursoR/main/Dados_jogadores.csv" 
+
+# Nome do objeto
 jog <- read.csv2(urlfile)
 
+# Listagem da tabela com os dados estatísticos dos jogadores
 jog
 
 
 # RESPOSTA (1a)
 
-
+# Coluna com as idades dos jogadores
 ijog <- jog$idade
 
 # Média das idades dos jogadores
@@ -41,7 +45,7 @@ IQR(ijog)
 
 # RESPOSTA (1b)
 
-
+# Coluna com as alturas dos jogadores
 ajog <- jog$altura
 
 # Média das alturas dos jogadores com mais de 25 anos de idade
@@ -53,7 +57,7 @@ sd(ajog[ijog>25])
 
 # RESPOSTA (1c)
 
-
+# Coluna com as posições dos jogadores
 pjog <- jog$posicao
 
 # Média das alturas dos jogadores por posição
@@ -66,6 +70,19 @@ aggregate(ajog, by=list(pjog), sd)
 aggregate(ajog, by=list(pjog), median)
 
 
-#RESPOSTA (1d)
+# RESPOSTA (1d)
+
+#  Coeficiente de correlação de Pearson entre idade e altura dos atletas
+cor.test(ijog, ajog)
+# Correlação positiva, porém fraca. Não há uma tendência estatisticamente significativa para esta afirmação
 
 
+# RESPOSTA (1e)
+
+#  Frequências absolutas dos jogadores por posição
+table(pjog)
+
+#  Frequências relativas dos jogadores por posição
+prop.table(table(pjog))
+
+# RESPOSTA (1f)
