@@ -1,0 +1,38 @@
+##########################################
+# LISTA DE EXERCÍCIOS 5
+# Autor: MATHEUS DE MENEZES MAZELLI
+# Data: 05/04/2026
+##########################################
+
+
+# Removendo os objetos ativos
+rm(list=ls())
+
+
+# = EXERCÍCIO - CRIANDO FUNÇÕES NO R =
+
+
+# Função para o cálculo do LDLc
+
+fLDLc <- function(CT, HDLc, TG, jejum = TRUE)
+
+# Cálculo do VLDLc estimado
+VLDLc <- TG / 5
+
+# Equação proposta por Friedewald - cálculo do LDLc
+LDLc <- CT - HDLc - VLDLc
+
+# Verificação de precisão do resultado obtido
+if(TG >= 400) {Warning("O resultado obtido é impreciso, pois o valor fornecido para TG é maior ou igual a 400 mg/dL")}
+
+# Estabelecimento de limite para TG
+lTG <- if(jejum) 150 else 175
+  
+# Condição para hiperlipidemia mista
+if(ldlc >= 160 && TG >= limite_tg) {message("As concentrações indicam hiperlipidemia mista")}
+
+# Condição para hiperlipidemia isolada
+else if(ldlc >= 160) {message("As concentrações indicam hipercolesterolemia isolada")}
+  
+# Resultado do cálculo do LDLc
+return(ldlc)
