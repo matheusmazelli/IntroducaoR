@@ -12,6 +12,14 @@ rm(list=ls())
 # = EXERCÍCIO - CRIANDO FUNÇÕES NO R =
 
 
+# Glossário de variáveis:
+# LDLc =  Colesterol da lipoproteína de baixa densidade
+# CT = Colesterol total
+# HDLc = HDL-colesterol
+# VLDLc = VLDL-colesterol
+# TG = Concentração de triglicerídeos
+
+
 # Função para o cálculo do LDLc
 fLDLc <- function(CT, HDLc, TG, jejum = TRUE)
 {
