@@ -48,7 +48,7 @@ if(LDLc >= 160 && TG >= lTG) {warning("Aviso: As concentrações informadas para
 
 # Condição para hipercolesterolemia isolada
 {
-if(LDLc > 160) & TG < = lTG {warning("Aviso: A concentração informada para LDLc indica hipercolesterolemia isolada.")}
+else if(LDLc > 160) && TG < = lTG {warning("Aviso: A concentração informada para LDLc indica hipercolesterolemia isolada.")}
 }
 
 # Resultado do cálculo do LDLc
