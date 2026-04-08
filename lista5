@@ -13,26 +13,39 @@ rm(list=ls())
 
 
 # Função para o cálculo do LDLc
-
 fLDLc <- function(CT, HDLc, TG, jejum = TRUE)
-
-# Cálculo do VLDLc estimado
-VLDLc <- TG / 5
+{
 
 # Equação proposta por Friedewald - cálculo do LDLc
-LDLc <- CT - HDLc - VLDLc
+# Levando-se em consideração se a pessoa fez ou não jejum
+{
+if(jejum) {LDLc <- CT - HDLc - (TG/5)}
+else {LDLc <- CT - HDLc - (TG/8)}
+}
 
 # Verificação de precisão do resultado obtido
-if(TG >= 400) {Warning("O resultado obtido é impreciso, pois o valor fornecido para TG é maior ou igual a 400 mg/dL")}
+{
+if(TG >= 400) {warning("Aviso: O resultado obtido é impreciso, pois o valor fornecido para TG >= 400 mg/dL.")}
+}
 
-# Estabelecimento de limite para TG
+# Estabelecimento de limite para TG em relação a jejum
+{
 lTG <- if(jejum) 150 else 175
-  
-# Condição para hiperlipidemia mista
-if(ldlc >= 160 && TG >= limite_tg) {message("As concentrações indicam hiperlipidemia mista")}
+}
 
-# Condição para hiperlipidemia isolada
-else if(ldlc >= 160) {message("As concentrações indicam hipercolesterolemia isolada")}
-  
+# Condição para hiperlipidemia mista
+{
+if(LDLc >= 160 && TG >= lTG) {warning("Aviso: As concentrações informadas para LDLc e TG indicam hiperlipidemia mista.")}
+}
+
+# Condição para hipercolesterolemia isolada
+{
+if(LDLc > 160) {warning("Aviso: A concentração informada para LDLc indica hipercolesterolemia isolada.")}
+}
+
 # Resultado do cálculo do LDLc
-return(ldlc)
+return(LDLc)
+}
+
+# Sintaxe da função criada
+fLDLc(CT, HDLc, TG, jejum = TRUE)
