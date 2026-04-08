@@ -42,10 +42,13 @@ lTG <- if(jejum) 150 else 175
 }
 
 # Condição para hiperlipidemia mista
-# Condição para hipercolesterolemia isolada
 {
 if(LDLc >= 160 && TG >= lTG) {warning("Aviso: As concentrações informadas para LDLc e TG indicam hiperlipidemia mista.")}
-else (LDLc > 160) && TG < = lTG {warning("Aviso: A concentração informada para LDLc indica hipercolesterolemia isolada.")}
+}
+
+# Condição para hipercolesterolemia isolada
+{
+if(LDLc > 160 && TG < lTG) {warning("Aviso: A concentração informada para LDLc indica hipercolesterolemia isolada.")}
 }
 
 # Resultado do cálculo do LDLc
