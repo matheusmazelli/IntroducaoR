@@ -1,1 +1,69 @@
+##########################################
+# LISTA DE EXERCÍCIOS 3
+# Autor: MATHEUS DE MENEZES MAZELLI
+# Data: 02/05/2026
+##########################################
 
+
+# Removendo os objetos ativos
+rm(list=ls())
+
+
+# = EXERCÍCIO =
+
+
+# Endereço da tabela com os dados climáticos de Ribeirão Preto, de 1991 a 2021
+urlfile <- "https://codeberg.org/edsonzmartinez/CursoR/raw/branch/main/dadosclimaticosRP.csv" 
+
+# Tabela com os dados climáticos de Ribeirão Preto, de 1991 a 2021
+clima <- read.csv2(urlfile, fileEncoding = "Windows-1252")
+
+# Listagem da tabela com os dados climáticos de Ribeirão Preto, de 1991 a 2021
+clima
+
+
+# RESPOSTA (a)
+
+# Nomes das variáveis da base de dados
+colnames(clima)
+
+
+# RESPOSTA (b)
+
+# Seis primeiras linhas da base de dados
+head(clima, 6)
+
+
+# RESPOSTA (c)
+
+# Seis últimas linhas da base de dados
+tail(clima, 6)
+
+
+# RESPOSTA (d)
+
+# Linhas 20 a 40 da base de dados
+clima[20:40, ]
+
+
+# RESPOSTA (e)
+
+#  Linhas correspondentes ao ano de 1993 da base de dados
+clima[clima$ano == 1993, ]
+
+
+# RESPOSTA (f)
+
+# Box-plot para a variável precipitação, mostrando quais são os meses com mais chuva e com menos chuva em Ribeirão Preto
+boxplot(
+clima$precipitacao ~ clima$mes,
+names = c("JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"),
+main = "Precipitação em Ribeirão Preto ao longo dos meses (1991-2021)",
+xlab = "Mês",
+ylab = "Precipitação",
+)
+
+
+# RESPOSTA (g)
+
+# Código R para gerar uma figura igual à proposta no exercício
