@@ -43,13 +43,13 @@ tail(clima, 6)
 # RESPOSTA (d)
 
 # Linhas 20 a 40 da base de dados
-clima[20:40, ]
+clima[20:40,]
 
 
 # RESPOSTA (e)
 
 #  Linhas correspondentes ao ano de 1993 da base de dados
-clima[clima$ano == 1993, ]
+clima[clima$ano == 1993,]
 
 
 # RESPOSTA (f)
@@ -103,7 +103,7 @@ ylab = "Temperatura (graus)",
 main = "Temperaturas mensais em Ribeirão Preto, 1991 a 2021"
 )
 
-# Criação e configuração do gráfico secundário (temperatura máxima)
+# Criação e configuração do gráfico secundário (temperatura mínima)
 lines(
 tmin,
 col = "blue"
@@ -117,7 +117,7 @@ labels = paste0("Jan\n", 1991:2021),
 cex.axis = 0.6
 )
 
-# Adição do eixo vertical no lado esquerdo com as marcações automáticas de temperatura
+# Configuração do eixo vertical no lado esquerdo com as marcações automáticas de temperatura
 axis(
 2
 )
