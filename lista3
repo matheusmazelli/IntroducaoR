@@ -67,3 +67,68 @@ ylab = "Precipitação",
 # RESPOSTA (g)
 
 # Código R para gerar uma figura igual à proposta no exercício
+
+# Configuração prévia: números no eixo horizontal, legendas fora da área gráfica e definição das margens
+par(
+las = 1,
+xpd = TRUE,
+mar = c(7, 4, 4, 2)
+)
+
+# Definição do período inicial e do intervalo em meses, para temperaturas mínimas
+tmin <- ts(
+clima$tempmenmensal,
+start = 1991,
+frequency = 12
+)
+
+# Definição do período inicial e do intervalo em meses, para temperaturas máximas
+tmax <- ts(
+clima$tempmaxmensal,
+start = 1991,
+frequency = 12
+)
+
+# Criação e configuração do gráfico principal (temperatura máxima)
+plot(
+tmax,
+type = "l",
+col = "red",
+ylim = c(0, 40),
+bty = "n",
+xaxt = "n",
+yaxt = "n",
+xlab = "",
+ylab = "Temperatura (graus)",
+main = "Temperaturas mensais em Ribeirão Preto, 1991 a 2021"
+)
+
+# Criação e configuração do gráfico secundário (temperatura máxima)
+lines(
+tmin,
+col = "blue"
+)
+
+# Configuração do eixo horizontal
+axis(
+1,
+at = 1991:2021,
+labels = paste0("Jan\n", 1991:2021),
+cex.axis = 0.6
+)
+
+# Adição do eixo vertical no lado esquerdo com as marcações automáticas de temperatura
+axis(
+2
+)
+
+# Configuração das legendas abaixo do gráfico
+legend(
+"bottom",
+inset = -0.25,
+legend = c("Temperatura máxima", "Temperatura mínima"),
+col = c("red", "blue"),
+lty = 1,
+bty = "n",
+horiz = TRUE
+)
