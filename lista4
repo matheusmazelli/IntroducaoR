@@ -64,20 +64,38 @@ medidas$Weight,
 medidas$Height,
 xlab = "Peso (libra)",
 ylab = "Altura (polegada)",
-main = "Gráfico da dispersão entre o peso e a altura das pessoas"
+main = "Gráfico da dispersão entre o peso e a altura das pessoas",
+col = "blue"
 )
+
+# Leitura do resultado: Foram identificados quatro valores atípicos
 
 
 # RESPOSTA (5)
 
 # Histograma para as idades, descrevendo a distribuição dos dados
-hist(medidas$Age, main="Histograma para as idades", xlab="Idade (anos)")
+hist(
+medidas$Age,
+xlab = "Idade (anos)",
+main = "Histograma para as idades",
+col = "orange"
+)
 
 # Histogramas para os pesos, descrevendo a distribuição dos dados
-hist(medidas$Weight, main="Histograma para os pesos", xlab="Peso (kg)")
+hist(
+medidas$Weight,
+xlab = "Peso (kg)",
+main = "Histograma para os pesos",
+col = "yellow"
+)
 
 # Histogramas as estaturas, descrevendo a distribuição dos dados
-hist(medidas$Height, main="Histograma para as estaturas", xlab="Estatura (cm)")
+hist(
+medidas$Height,
+xlab = "Estatura (cm)",
+main = "Histograma para as estaturas",
+col = "green"
+)
 
 
 # RESPOSTA (6)
@@ -89,9 +107,9 @@ if (i != "Fat")
 {
 plot(medidas[[i]],
 medidas$Fat, 
-main = paste("Fat x", i),
 xlab = i,
 ylab = "Percentual de gordura (%)",
+main = paste("Fat x", i),
 pch = 16,           
 col = "purple")  
 }
@@ -115,9 +133,9 @@ coe
 plot(
 medidas$Age,
 medidas$Abdomen,
-main = "Gráfico de dispersão entre a idade e a circunferência do abdômen das pessoas",
 xlab = "Idade (anos)",
 ylab = "Circunferência do abdômen (cm)",
+main = "Gráfico de dispersão entre a idade e a circunferência do abdômen das pessoas",
 pch = 1,
 col = "red"
 )
@@ -133,6 +151,13 @@ medidas$Abdomen
 
 #RESPOSTA (9)
 
-# Criação de uma nova variável, que recebe 0 se a idade é menor ou igual a 45 e 1, caso contrário
+# Criação de uma nova variável, que recebe 0 se a idade é menor ou igual a 45, e 1 caso contrário
+var_idade <- ifelse(medidas$Age <= 45, 0, 1)
+
+# Listagem da tabela com a nova variável
+var_idade
 
 
+RESPOSTA (10)
+
+#
