@@ -20,7 +20,7 @@ colnames(medidas) <- as.character(unlist(medidas[1, ]))
 # Exclusão da primeira linha após o cabeçalho que ficou "duplicada"
 medidas <- medidas[-1, ]
 
-# Conversão dos dados de texto para valores numéricos
+# Conversão dos dados em formato de texto para valores numéricos
 medidas <- data.frame(lapply(medidas, as.numeric))
 
 # Listagem da tabela com o banco de dados preparado
