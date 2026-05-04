@@ -100,18 +100,22 @@ col = "green"
 
 # RESPOSTA (6)
 
-# Gráficos de dispersão que permitem descrever os padrões de associação entre o percentual de gordura (Fat) e as demais variáveis do banco de dados
+# Criação de loop para as variáveis
 for(i in names(medidas))
-{  
-if (i != "Fat")
 {
-plot(medidas[[i]],
-medidas$Fat, 
+if(i != "Fat")
+
+# Gráficos de dispersão que permitem descrever os padrões de associação entre o percentual de gordura (Fat) e as demais variáveis do banco de dados
+{
+plot(
+medidas[[i]],
+medidas$Fat,
 xlab = i,
 ylab = "Percentual de gordura (%)",
 main = paste("Fat x", i),
-pch = 16,           
-col = "purple")  
+pch = 16,
+col = "purple"
+)
 }
 }
 
@@ -149,7 +153,7 @@ medidas$Abdomen
 # Leitura do resultado: As comparações apontam que não há uma tendência de pessoas mais idosas possuírem maior circunferência do abdômen
 
 
-#RESPOSTA (9)
+# RESPOSTA (9)
 
 # Criação de uma nova variável, que recebe 0 se a idade é menor ou igual a 45, e 1 caso contrário
 var_idade <- ifelse(medidas$Age <= 45, 0, 1)
@@ -157,7 +161,68 @@ var_idade <- ifelse(medidas$Age <= 45, 0, 1)
 # Listagem da tabela com a nova variável
 var_idade
 
+# Incorporação da variável no banco de dados
+medidas$var_idade <- var_idade
 
-RESPOSTA (10)
 
-#
+# RESPOSTA (10)
+
+# Box-plots para as variáveis contínuas do banco de dados, descrevendo-as segundo os dois grupos de idade criados no item 9
+for(i in names(medidas))
+{  
+if (i != "var_idade")
+{
+boxplot(
+medidas[[i]],
+medidas$var_idade, 
+xlab = i,
+ylab = "Percentual de gordura (%)",
+main = paste("Idade (anos)"),
+pch = 16,
+col = "black"
+)
+}
+}
+
+
+# RESPOSTA (11)
+
+# Testes de normalidade de cada uma das variáveis contínuas do banco de dados
+
+# Lista vazia para armazenar os resultados dos testes de cada variável
+res_test <- list()
+
+# Configuração da área gráfica (16 partes)
+par(mfrow = c(4, 4))
+
+# Configuração do ciclo de repetição
+for (i in names(medidas))
+
+# Criação do gráfico e execução do teste de Shapiro-Wilk
+{
+qqnorm(medidas[[i]], main = paste("Q-Q Plot de", i))
+res_test[[i]] <- shapiro.test(medidas[[i]])
+}
+
+# Exibição do resultado para a variável testada
+res_test$Density
+
+
+# RESPOSTA (12)
+
+# Testes de comparação de médias para testar se cada uma das variáveis contínuas do banco de dados possui médias populacionais diferentes entre os dois grupos de idade criados no item 9
+
+# Loop para comparação das médias das variáveis
+for(i in 1:ncol(medidas))
+
+# Verificação para saber se a coluna é numérica e se não é a própria "var_idade" ou a "Age" original
+{
+if(is.numeric(medidas[[i]]) && !(colnames(medidas)[i] %in% c("var_idade", "Age")))
+{
+cat("\n--------------------------------------------------\n")
+cat("Variável analisada:", colnames(medidas)[i], "\n")
+
+# Realização do teste t de Student (William Gosset)
+print(t.test(medidas[[i]] ~ medidas$var_idade))
+}
+}
