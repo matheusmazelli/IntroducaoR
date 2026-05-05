@@ -215,14 +215,14 @@ res_test$Density
 
 # Testes de comparação de médias para testar se cada uma das variáveis contínuas do banco de dados possui médias populacionais diferentes entre os dois grupos de idade criados no item 9
 
-# Configuração de loop para comparação das médias das variáveis contínuas
+# Criação de loop para comparação das médias para testar as variáveis contínuas
 for(i in 1:ncol(medidas))
 
-# Verificação para saber se a coluna é numérica e se não é a própria "var_idade" ou a "Age" original
+# Teste para verificar se a coluna é numérica e se não é a própria "var_idade" ou a "Age" original
 {
 if(is.numeric(medidas[[i]]) && !(colnames(medidas)[i] %in% c("var_idade", "Age")))
 {
-cat("\n--------------------------------------------------\n")
+cat("\n\n")
 cat("Variável analisada:", colnames(medidas)[i], "\n")
 
 # Realização do teste t de Student (William Gosset)
