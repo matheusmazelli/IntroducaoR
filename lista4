@@ -38,7 +38,6 @@ peso_kg
 
 # RESPOSTA (2)
 
-
 # Variável contendo as alturas das pessoas, em centímetros
 altura_cm <- medidas$Height * 2.54
 
