@@ -78,7 +78,7 @@ col = "blue"
 # Histograma para as idades, descrevendo a distribuição dos dados
 hist(
 medidas$Age,
-xlab = "Idade (anos)",
+xlab = "Idade (ano)",
 main = "Histograma para as idades",
 col = "orange"
 )
@@ -134,17 +134,18 @@ coe
 # RESPOSTA (8)
 
 # Análise sobre a tendência de pessoas mais idosas possuírem maior circunferência do abdômen
+
+# Gráfico da dispersão entre as idades e as circunferências do abdômen das pessoas
 plot(
 medidas$Age,
 medidas$Abdomen,
-xlab = "Idade (anos)",
+xlab = "Idade (ano)",
 ylab = "Circunferência do abdômen (cm)",
-main = "Gráfico de dispersão entre a idade e a circunferência do abdômen das pessoas",
-pch = 1,
+main = "Gráfico da dispersão entre as idades e as circunferências do abdômen das pessoas",
 col = "red"
 )
 
-# Coeficiente de correlação entre a idade e a circunferência do abdômen das pessoas
+# Coeficiente de correlação entre as idades e as circunferências do abdômen das pessoas
 cor.test(
 medidas$Age,
 medidas$Abdomen
@@ -161,25 +162,27 @@ var_idade <- ifelse(medidas$Age <= 45, 0, 1)
 # Listagem da tabela com a nova variável
 var_idade
 
-# Incorporação da variável no banco de dados
+# Incorporação da nova variável no banco de dados
 medidas$var_idade <- var_idade
 
 
 # RESPOSTA (10)
 
-# Box-plots para as variáveis contínuas do banco de dados, descrevendo-as segundo os dois grupos de idade criados no item 9
+# Criação de loop para as variáveis
 for(i in names(medidas))
+
+# Box-plots para as variáveis contínuas do banco de dados, descrevendo-as segundo os dois grupos de idade criados no item 9
 {  
-if (i != "var_idade")
+if(i != "var_idade")
 {
 boxplot(
 medidas[[i]],
 medidas$var_idade, 
 xlab = i,
-ylab = "Percentual de gordura (%)",
-main = paste("Idade (anos)"),
-pch = 16,
-col = "black"
+ylab = "Idade (ano)",
+main = paste("Age x", i),
+col = "black",
+pch = 16
 )
 }
 }
