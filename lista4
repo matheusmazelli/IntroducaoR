@@ -172,12 +172,12 @@ medidas$var_idade <- var_idade
 for(i in names(medidas))
 
 # Box-plots para as variáveis contínuas do banco de dados, descrevendo-as segundo os dois grupos de idade criados no item 9
-{  
+{
 if(i != "var_idade")
 {
 boxplot(
 medidas[[i]],
-medidas$var_idade, 
+medidas$var_idade,
 xlab = i,
 ylab = "Idade (ano)",
 main = paste("Age x", i),
@@ -190,7 +190,7 @@ pch = 16
 
 # RESPOSTA (11)
 
-# Testes de normalidade de cada uma das variáveis contínuas do banco de dados
+# Testes de normalidade e gráficos de probabilidade normal para testar a normalidade de cada uma das variáveis contínuas do banco de dados
 
 # Lista vazia para armazenar os resultados dos testes de cada variável
 res_test <- list()
@@ -198,13 +198,13 @@ res_test <- list()
 # Configuração da área gráfica (16 partes)
 par(mfrow = c(4, 4))
 
-# Configuração do ciclo de repetição
-for (i in names(medidas))
+# Criação de loop para as variáveis
+for(i in names(medidas))
 
-# Criação do gráfico e execução do teste de Shapiro-Wilk
+# Criação dos gráficos e execução dos testes de Shapiro-Wilk
 {
 qqnorm(medidas[[i]], main = paste("Q-Q Plot de", i))
-res_test[[i]] <- shapiro.test(medidas[[i]])
+res_test[i] <- shapiro.test(medidas[[i]])
 }
 
 # Exibição do resultado para a variável testada
@@ -215,7 +215,7 @@ res_test$Density
 
 # Testes de comparação de médias para testar se cada uma das variáveis contínuas do banco de dados possui médias populacionais diferentes entre os dois grupos de idade criados no item 9
 
-# Loop para comparação das médias das variáveis
+# Configuração de loop para comparação das médias das variáveis contínuas
 for(i in 1:ncol(medidas))
 
 # Verificação para saber se a coluna é numérica e se não é a própria "var_idade" ou a "Age" original
