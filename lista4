@@ -20,7 +20,7 @@ colnames(medidas) <- as.character(unlist(medidas[1, ]))
 # Exclusão da primeira linha após o cabeçalho que ficou "duplicada"
 medidas <- medidas[-1, ]
 
-# Conversão dos dados em formato de texto para valores numéricos
+# Conversão dos dados de formato de texto para valores numéricos
 medidas <- data.frame(lapply(medidas, as.numeric))
 
 # Listagem da tabela com o banco de dados preparado
@@ -32,7 +32,7 @@ medidas
 # Variável contendo os pesos das pessoas, em quilogramas
 peso_kg <- medidas$Weight * 0.45359237
 
-# Listagem da tabela com os pesos das pessoas em quilogramas
+# Listagem da tabela com os pesos das pessoas, em quilogramas
 peso_kg
 
 
@@ -42,7 +42,7 @@ peso_kg
 # Variável contendo as alturas das pessoas, em centímetros
 altura_cm <- medidas$Height * 2.54
 
-# Listagem da tabela com os pesos das pessoas em quilogramas
+# Listagem da tabela com as alturas das pessoas, em centímetros
 altura_cm
 
 
@@ -51,20 +51,22 @@ altura_cm
 # Box-plot para cada uma das variáveis contínuas do banco de dados
 boxplot(
 medidas,
-main = "Boxplot das variáveis contínuas do banco de dados",
+main = "Box-plot das variáveis contínuas do banco de dados",
 las = 2
 )
+
+# Leitura do resultado: Foram identificados dois valores atípicos
 
 
 # RESPOSTA (4)
 
-# Gráfico de dispersão entre o peso e a altura das pessoas, identificando valores atípicos nesta relação
+# Gráfico da dispersão entre os pesos e as alturas das pessoas, identificando valores atípicos nesta relação
 plot(
 medidas$Weight,
 medidas$Height,
 xlab = "Peso (libra)",
 ylab = "Altura (polegada)",
-main = "Gráfico da dispersão entre o peso e a altura das pessoas",
+main = "Gráfico da dispersão entre os pesos e as alturas das pessoas",
 col = "blue"
 )
 
@@ -81,18 +83,18 @@ main = "Histograma para as idades",
 col = "orange"
 )
 
-# Histogramas para os pesos, descrevendo a distribuição dos dados
+# Histograma para os pesos, descrevendo a distribuição dos dados
 hist(
 medidas$Weight,
-xlab = "Peso (kg)",
+xlab = "Peso (libra)",
 main = "Histograma para os pesos",
 col = "yellow"
 )
 
-# Histogramas as estaturas, descrevendo a distribuição dos dados
+# Histograma para as estaturas, descrevendo a distribuição dos dados
 hist(
 medidas$Height,
-xlab = "Estatura (cm)",
+xlab = "Estatura (polegada)",
 main = "Histograma para as estaturas",
 col = "green"
 )
@@ -102,21 +104,19 @@ col = "green"
 
 # Criação de loop para as variáveis
 for(i in names(medidas))
-{
-if(i != "Fat")
 
 # Gráficos de dispersão que permitem descrever os padrões de associação entre o percentual de gordura (Fat) e as demais variáveis do banco de dados
 {
+if(i != "Fat")
 plot(
 medidas[[i]],
 medidas$Fat,
 xlab = i,
 ylab = "Percentual de gordura (%)",
 main = paste("Fat x", i),
-pch = 16,
-col = "purple"
+col = "purple",
+pch = 16
 )
-}
 }
 
 
